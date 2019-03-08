@@ -21,25 +21,22 @@ class Todo extends React.Component {
   }
 
   handleChange(e) {
-    e.preventDefault();
     this.setState({
       newTodo: e.target.value
     })
   }
 
   handleClick(e) {
-    e.preventDefault();
     var allTodos = this.state.todos
-    // if (this.state.newTodo.length > 0) {
-    allTodos.push(this.state.newTodo)
-    // }
+    if (this.state.newTodo.length > 0) {
+      allTodos.push(this.state.newTodo)
+    }
     this.setState({
       todos: allTodos
     })
   }
 
   render() {
-    console.log(data)
     return (
       <div>
         <NewTodo todos={this.state.todos} handleChange={this.handleChange.bind(this)} handleClick={this.handleClick.bind(this)} />
